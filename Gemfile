@@ -20,6 +20,7 @@ gem 'haml-rails', '~> 1.0'
 gem 'browser', '~> 2.5', '>= 2.5.3'
 gem 'paperclip', '~> 6.1'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+gem 'devise', '~> 4.5'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -54,4 +55,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
+gem 'bootsnap', '~> 1.3', '>= 1.3.2'
