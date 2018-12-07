@@ -8,4 +8,12 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    .wrapper
+      = render partial: 'shared/menu'
+      #content
+        %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+          .container-fluid
+            %button#sidebarCollapse.btn.btn-info{:type => "button"}
+              %i.fas.fa-align-left
+              %span Toggle Sidebar
+        = yield
