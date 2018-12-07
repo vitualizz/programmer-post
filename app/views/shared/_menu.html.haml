@@ -1,0 +1,28 @@
+%nav#sidebar
+  - if user_signed_in?
+    .sidebar-header
+      = link_to root_path do
+        %h3 Usuario
+    %ul.list-unstyled.components
+      %p ultimo post
+      %li.option-menu.active
+        = link_to "Redes Sociales", "javascript:;"
+      %li.option-menu
+        = link_to "Posts", "javascript:;"
+      %li.option-menu
+        = link_to "Configuración", "javascript:;"
+      %li.option-menu
+        = link_to "Cerrar Sesión", "javascript:;"
+  - else
+    .sidebar-header
+      = link_to new_user_session_path do
+        %h3 Iniciar Sesion
+      = link_to new_user_registration_path do
+        %h3 Registrarse
+    %ul.list-unstyled.components
+      %p Eslogan
+      %li.option-menu.active
+        = link_to "Inicio", "javascript:;"
+      %li.option-menu
+        = link_to "Contacto", "javascript:;"
+
