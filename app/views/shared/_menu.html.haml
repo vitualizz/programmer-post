@@ -9,6 +9,12 @@
       %p ultimo post
   - else
     %ul.list-unstyled.components
+      %li.option-menu  
+        = link_to new_user_session_path, class: active_class(new_user_session_path) + " text-center" do
+          %h3 Iniciar Sesion
+      %li.option-menu
+        = link_to new_user_registration_path, class: active_class(new_user_registration_path) + " text-center" do
+          %h3 Registrarse
       - menu = [["Inicio", root_path], ["Contacto", home_contact_path]]
       = render partial: "shared/menu_option", locals: { options: menu } 
       %p Eslogan

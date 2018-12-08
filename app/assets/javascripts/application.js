@@ -16,5 +16,8 @@
 //= require bootstrap
 //= require activestorage
 //= require turbolinks
-//= require_tree .
-
+//
+//
+//Components
+//
+//= require menu
