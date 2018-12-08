@@ -61,8 +61,8 @@ a:focus {
     top: 0;
     left: 0;
     height: 100vh;
-    z-index: 999;
-    background: #7386D5;
+    z-index: 998;
+    background: #E42A36;
     color: #fff;
     transition: all 0.3s;
 }
@@ -73,12 +73,15 @@ a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: #D5232C;
+}
+
+#sidebar ul {
+    height: 100%;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
 }
 
 #sidebar ul p {
@@ -94,13 +97,13 @@ a:focus {
 
 #sidebar ul li a:hover {
     color: #7386D5;
-    background: #fff;
+    background: #D5232C;
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
+    background: #D5232C;
 }
 
 a[data-toggle="collapse"] {
@@ -143,6 +146,23 @@ a.article:hover {
     background: #6d7fcc !important;
     color: #fff !important;
 }
+li.option-menu-user {
+  height: 30%;
+  width: 100%;
+}
+
+li.option-menu {
+  height: 15%;
+  width: 100%;
+  display: table;
+}
+
+li.option-menu a {
+  height: 100%;
+  width: 100%;
+  display: table-cell !important;
+  vertical-align: middle;
+}
 
 /* ---------------------------------------------------
     CONTENT STYLE
@@ -160,6 +180,31 @@ a.article:hover {
 
 #content.active {
     width: 100%;
+}
+
+/* --------------------------------------------------
+    SIDE MENU
+----------------------------------------------------*/
+
+#active-option {
+  z-index: 999;
+  text-align: center;
+  width: 25px;
+  min-height: 100vh;
+  position: absolute;
+  left: 0;
+  background-color: transparent;
+  margin-left: 0px;
+  transition: all 0.3s;
+  display: table;
+}
+#active-option.active {
+  margin-left: 225px;
+}
+
+#active-option a {
+  display: table-cell;
+  vertical-align: middle;
 }
 
 /* ---------------------------------------------------

@@ -11,9 +11,4 @@
     .wrapper
       = render partial: 'shared/menu'
       #content
-        %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-          .container-fluid
-            %button#sidebarCollapse.btn.btn-info{:type => "button"}
-              %i.fas.fa-align-left
-              %span Toggle Sidebar
         = yield
