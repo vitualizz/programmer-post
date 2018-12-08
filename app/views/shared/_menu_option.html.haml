@@ -1,0 +1,3 @@
+- options.each do |option|
+  %li.option-menu{class: active_class(option[1])}
+    = link_to option[0], "#{option[1]}"
