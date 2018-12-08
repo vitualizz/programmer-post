@@ -7,3 +7,4 @@ es:
         email: "Correo Electronico"
         password: "Contraseña"
         password_confirmation: "Confirmar Contraseña"
+        login: "Usuario o Email"
