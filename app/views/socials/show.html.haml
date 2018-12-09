@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @social.name
+%p
+  %b Token:
+  = @social.token
+
+= link_to 'Edit', edit_social_path(@social)
+\|
+= link_to 'Back', socials_path

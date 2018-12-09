@@ -15,4 +15,14 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = "es"
   end
+
+  #DEVISE
+
+  def after_sign_in_path_for(resource_or_scope)
+    socials_path
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    root_path
+  end
 end

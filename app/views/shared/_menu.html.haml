@@ -1,10 +1,10 @@
 %nav#sidebar
   - if user_signed_in?
-    .sidebar-header.option-menu-user
-      = link_to root_path do
+    .option-menu-user
+      = link_to edit_user_registration_path do
         %h3 Usuario
     %ul.list-unstyled.components
-      - menu = [["Redes Sociales", root_path], ["Posts", root_path], ["Configuración", root_path]]
+      - menu = [["Redes Sociales", socials_path], ["Posts", posts_path], ["Configuración", root_path]]
       = render partial: "shared/menu_option", locals: { options: menu }
       %li.option-menu
         = link_to "Cerrar Sesión", destroy_user_session_path, method: :delete

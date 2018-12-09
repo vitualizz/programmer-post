@@ -25,6 +25,7 @@ gem 'devise', '~> 4.5'
 gem 'omniauth', '~> 1.8', '>= 1.8.1'
 gem 'simple_form', '~> 4.1'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
