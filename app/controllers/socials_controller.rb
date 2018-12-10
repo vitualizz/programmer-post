@@ -10,6 +10,7 @@ class SocialsController < ApplicationController
   # GET /socials/1
   # GET /socials/1.json
   def show
+    @social = Social.find params[:id]
   end
 
   # GET /socials/new

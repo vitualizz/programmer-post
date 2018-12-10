@@ -1,2 +1,3 @@
 class Social < ApplicationRecord
+
 end

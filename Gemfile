@@ -22,10 +22,11 @@ gem 'browser', '~> 2.5', '>= 2.5.3'
 gem 'paperclip', '~> 6.1'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'devise', '~> 4.5'
-gem 'omniauth', '~> 1.8', '>= 1.8.1'
+gem 'omniauth-instagram', '~> 1.3'
 gem 'simple_form', '~> 4.1'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
+gem 'uuidtools', '~> 2.1', '>= 2.1.5'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

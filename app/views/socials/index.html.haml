@@ -1,23 +1,2 @@
-%h1 Listing socials
+= check_connection('Instagram')
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Token
-      %th
-      %th
-      %th
-
-  %tbody
-    - @socials.each do |social|
-      %tr
-        %td= social.name
-        %td= social.token
-        %td= link_to 'Show', social
-        %td= link_to 'Edit', edit_social_path(social)
-        %td= link_to 'Destroy', social, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Social', new_social_path
