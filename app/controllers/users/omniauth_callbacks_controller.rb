@@ -1,6 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  
-  require 'uuidtools'
+  include SocialsHelper
+  #require 'uuidtools'
 
   def facebook
     oauthorize "Facebook"
@@ -30,20 +30,8 @@ private
   end
 
   def find_for_ouath(provider, access_token, resource=nil)
-    user, email, name, uid, auth_attr = nil, nil, nil, {}
-    case provider
-      when "Instagram"
-        auth_attr = { :uid => access_token['uid'], :token => access_token['credentials']['token'],
-          :secret => nil, :username => access_token['info']['username'],
-          :name => access_token['info']['name'], :bio => access_token['info']['bio'] }
-      when "Facebook"
-        auth_attr = { :uid => access_token['uid'], :token => access_token['credentials']['token'],
-          :name => access_token['info']['name']}
-          #, :email => access_token['info']['email']}
-      when "Linkedin"
-        auth_attr = { :uid => access_token['uid'], :token => access_token['credentials']['token'],
-                      :username => access_token['info']['nickname'], :name => ['info']['name'],
-                      :bio => access_token['info']['description']}
+    if ["Instagram", "Facebook", "Linkedin"].include? provider  
+      auth_attr = attr_social(provider, access_token)
     else
       raise 'Provider #{provider} not handled'
     end

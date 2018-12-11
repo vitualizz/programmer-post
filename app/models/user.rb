@@ -18,13 +18,8 @@ class User < ApplicationRecord
   end
 
   def disconnect(social)
-    if social == 'instagram'
-      key = 'Instagram'
-    else
-      key = social.capitalize
-    end
-    auth = self.socials.where(provider: key).first
-    auth.update_attributes(token: nil, secret: nil)
+    auth = self.socials.where(provider: key.capitalize).first
+    auth.update_attribute(:token, nil)
   end
 
 
