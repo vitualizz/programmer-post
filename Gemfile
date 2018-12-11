@@ -22,7 +22,6 @@ gem 'browser', '~> 2.5', '>= 2.5.3'
 gem 'paperclip', '~> 6.1'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'devise', '~> 4.5'
-gem 'omniauth-instagram', '~> 1.3'
 gem 'simple_form', '~> 4.1'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
@@ -62,3 +61,13 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootsnap', '~> 1.3', '>= 1.3.2'
+
+#auth social
+gem 'omniauth-oauth2', '~> 1.3.1'
+gem 'omniauth-instagram', '~> 1.3'
+gem 'omniauth-facebook', '~> 3.0'
+gem 'omniauth-linkedin-oauth2', '~> 0.1.5'
+#social gestions
+gem 'koala', '~> 3.0'
+gem "linkedin-oauth2", "~> 1.0"
+gem 'instagram', '~> 1.1', '>= 1.1.6'

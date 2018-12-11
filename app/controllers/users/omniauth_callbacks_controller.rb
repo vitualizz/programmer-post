@@ -1,9 +1,17 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-
+  
   require 'uuidtools'
 
+  def facebook
+    oauthorize "Facebook"
+  end
+  
   def instagram
     oauthorize "Instagram"
+  end
+  
+  def linkedin
+    oauthorize "Linkedin"
   end
 
   def passthru
@@ -25,10 +33,17 @@ private
     user, email, name, uid, auth_attr = nil, nil, nil, {}
     case provider
       when "Instagram"
-        uid = access_token['uid']
-        auth_attr = { :uid => uid, :token => access_token['credentials']['token'],
+        auth_attr = { :uid => access_token['uid'], :token => access_token['credentials']['token'],
           :secret => nil, :username => access_token['info']['username'],
           :name => access_token['info']['name'], :bio => access_token['info']['bio'] }
+      when "Facebook"
+        auth_attr = { :uid => access_token['uid'], :token => access_token['credentials']['token'],
+          :name => access_token['info']['name']}
+          #, :email => access_token['info']['email']}
+      when "Linkedin"
+        auth_attr = { :uid => access_token['uid'], :token => access_token['credentials']['token'],
+                      :username => access_token['info']['nickname'], :name => ['info']['name'],
+                      :bio => access_token['info']['description']}
     else
       raise 'Provider #{provider} not handled'
     end
@@ -78,7 +93,7 @@ private
     else
       first_name = name
       last_name = name
-      user = User.new(:first_name => first_name, :last_name => last_name, :password => Devise.friendly_token[0,20], :email => "#{UUIDTools::UUID.random_create}@host")
+      user = User.new(:name => name, :password => Devise.friendly_token[0,20], :email => "#{UUIDTools::UUID.random_create}@host")
       user.save(:validate => false)
     end
     return user

@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, authentication_keys: [:login],
-         omniauth_providers: [:instagram]
+         omniauth_providers: [:instagram, :facebook, :linkedin]
 
   attr_accessor :login
   has_many :socials, :dependent => :destroy
