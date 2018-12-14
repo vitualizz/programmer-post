@@ -33,20 +33,10 @@ private
     if ["Instagram", "Facebook", "Linkedin"].include? provider  
       auth_attr = attr_social(provider, access_token)
     else
-      raise 'Provider #{provider} not handled'
+      raise "#{provider} aun no lo usamos"
     end
-    if resource.nil?
-      if email
-        user = find_for_oauth_by_email(email, resource)
-      elsif uid && name
-        user = find_for_oauth_by_uid(uid, resource)
-        if user.nil?
-          user = find_for_oauth_by_name(name, resource)
-        end
-      end
-    else
-      user = resource
-    end
+    
+    user = resource
 
     auth = user.socials.find_by_provider(provider)
     if auth.nil?
@@ -56,35 +46,4 @@ private
     auth.update_attributes auth_attr
     return user
   end
-
-  def find_for_oauth_by_uid(uid, resource=nil)
-    user = nil
-    if auth = Authorization.find_by_uid(uid.to_s)
-      user = auth.user
-    end
-    return user
-  end
-
-  def find_for_oauth_by_email(email, resource=nil)
-    if user = User.find_by_email(email)
-      user
-    else
-      user = User.new(:email => email, :password => Devise.friendly_token[0,20])
-      user.save
-    end
-    return user
-  end
-
-  def find_for_oauth_by_name(name, resource=nil)
-    if user = User.find_by_name(name)
-      user
-    else
-      first_name = name
-      last_name = name
-      user = User.new(:name => name, :password => Devise.friendly_token[0,20], :email => "#{UUIDTools::UUID.random_create}@host")
-      user.save(:validate => false)
-    end
-    return user
-  end
-
 end

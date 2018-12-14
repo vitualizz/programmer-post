@@ -10,15 +10,11 @@ class User < ApplicationRecord
 
   def has_connection_with(provider)
     auth = self.socials.where(provider: provider).first
-    if auth.present?
-      auth.token.present?
-    else
-      false
-    end
+    auth.present? ? auth.token.present? : false
   end
 
   def disconnect(social)
-    auth = self.socials.where(provider: key.capitalize).first
+    auth = self.socials.where(provider: social.capitalize).first
     auth.update_attribute(:token, nil)
   end
 
