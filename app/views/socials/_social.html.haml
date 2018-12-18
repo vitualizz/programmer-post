@@ -1,0 +1,11 @@
+.wrapper-social
+  .provider-social
+    %h4=@social.provider
+  .status-social
+    - if @social.connect?
+      .connect-social
+        %h3 Conectado
+    - else
+      .disconnect-social
+        %h3 Desconectado
+

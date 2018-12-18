@@ -3,15 +3,15 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #require 'uuidtools'
 
   def facebook
-    oauthorize "Facebook"
+    oauthorize "facebook"
   end
   
   def instagram
-    oauthorize "Instagram"
+    oauthorize "instagram"
   end
   
   def linkedin
-    oauthorize "Linkedin"
+    oauthorize "linkedin"
   end
 
   def passthru
@@ -30,7 +30,7 @@ private
   end
 
   def find_for_ouath(provider, access_token, resource=nil)
-    if ["Instagram", "Facebook", "Linkedin"].include? provider  
+    if ["instagram", "facebook", "linkedin"].include? provider  
       auth_attr = attr_social(provider, access_token)
     else
       raise "#{provider} aun no lo usamos"
@@ -40,7 +40,7 @@ private
 
     auth = user.socials.find_by_provider(provider)
     if auth.nil?
-      auth = user.socials.build(:provider => provider)
+      auth = user.socials.build(provider: provider)
       user.socials << auth
     end
     auth.update_attributes auth_attr

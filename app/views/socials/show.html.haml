@@ -1,11 +1,4 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @social.name
-%p
-  %b Token:
-  = @social.token
+- if ['instagram', 'facebook', 'linkedin'].include?(@social.provider)
 
 = link_to 'Edit', edit_social_path(@social)
 \|

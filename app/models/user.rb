@@ -14,7 +14,7 @@ class User < ApplicationRecord
   end
 
   def disconnect(social)
-    auth = self.socials.where(provider: social.capitalize).first
+    auth = self.socials.where(provider: social).first
     auth.update_attribute(:token, nil)
   end
 
