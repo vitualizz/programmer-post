@@ -34,3 +34,8 @@ config/database.yml
 
 # Ignore rvmrc
 .rvmrc
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

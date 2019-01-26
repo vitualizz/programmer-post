@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :posts
   root 'home#index'
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+  resource :users, only: :show 
   get 'home/contact'
 end

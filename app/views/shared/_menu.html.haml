@@ -1,7 +1,7 @@
 %nav#sidebar
   - if user_signed_in?
     .option-menu-user
-      = link_to edit_user_registration_path do
+      = link_to users_path do
         %h3 Usuario
     %ul.list-unstyled.components
       - menu = [["Redes Sociales", socials_path], ["Posts", posts_path], ["Configuración", root_path]]
